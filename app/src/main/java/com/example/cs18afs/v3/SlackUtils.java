@@ -19,7 +19,7 @@ import java.net.URL;
 
 public class SlackUtils {
 
-    private static String slackWebhookUrl = "https://hooks.slack.com/services/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";
+    private static String slackWebhookUrl = "https://hooks.slack.com/services/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";
 
 
 
