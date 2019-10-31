@@ -19,7 +19,7 @@ import java.net.URL;
 
 public class SlackUtils {
 
-    private static String slackWebhookUrl = "https://hooks.slack.com/services/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";
+    private static String slackWebhookUrl = "https://hooks.slack.com/services/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";
 
 
 
@@ -33,11 +33,17 @@ public class SlackUtils {
 
             URL url = new URL(slackWebhookUrl);
             HttpURLConnection client = (HttpURLConnection) url.openConnection();
-            client.setRequestProperty("Accept","application/json");
             client.setRequestProperty("Content-type", "application/json");
+            
+            client.setRequestProperty( "Accept", "*/*" );
+            //client.setRequestProperty("authorization", "Bearer " + "xoxp-763082602722-763149615602-815829401648-08f64702930096b280039ee517fe5806");
             client.setRequestMethod("POST");
+            client.setDoInput(true);
+            client.setDoOutput(true);
+
             OutputStreamWriter request = new OutputStreamWriter(client.getOutputStream());
-            request.write(new ObjectMapper().writeValueAsString(message));
+            String json = "{\"text\":\"test\"}";
+            request.write(json);
             request.flush();
             request.close();
         }
