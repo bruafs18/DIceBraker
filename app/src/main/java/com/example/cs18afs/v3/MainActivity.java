@@ -71,6 +71,14 @@ public class MainActivity extends AppCompatActivity {
         ShowToast("Congratulations",Toast.LENGTH_SHORT);
         points++;
         UpdatelblPoints();
+        try {
+            SlackMessage slackMessage = new SlackMessage("Andre", sPoints + points);
+            SlackUtils.sendMessage(slackMessage);
+        }
+        catch (Exception ex)
+        {
+            ShowToast(ex.getMessage(),Toast.LENGTH_LONG);
+        }
     }
 
     void UpdatelblPoints()
